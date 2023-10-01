@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+    <script>
+        let displayValue = '';
+
+        function buttonDisplay(value) {
+            displayValue += value;
+            document.getElementById('display').value = displayValue;
+        }
+
+        function acDisplay() {
+            displayValue = '';
+            document.getElementById('display').value = displayValue;
+        }
+
+        function result() {
+            const result = eval(displayValue);
+            displayValue = result.toString();
+            document.getElementById('display').value = displayValue;
+        }
+
+        function deleteLast() {
+            displayValue = displayValue.slice(0, -1);
+            document.getElementById('display').value = displayValue;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name="display" id="display">
+                </div>
+                <div class="opration">
+                    <input type="button" value="AC" onclick="acDisplay()">
+                    <input type="button" value="DEL" onclick="deleteLast()">
+                    <input type="button" value="." onclick="buttonDisplay('.')">
+                    <input type="button" value="/" onclick="buttonDisplay('/')">
+                </div>
+
+                <div>
+                    <input type="button" value="7" onclick="buttonDisplay('7')">
+                    <input type="button" value="8" onclick="buttonDisplay('8')">
+                    <input type="button" value="9" onclick="buttonDisplay('9')">
+                    <input type="button" value="*" onclick="buttonDisplay('*')" class="opration">
+                </div>
+
+                <div>
+                    <input type="button" value="4" onclick="buttonDisplay('4')">
+                    <input type="button" value="5" onclick="buttonDisplay('5')">
+                    <input type="button" value="6" onclick="buttonDisplay('6')">
+                    <input type="button" value="-" onclick="buttonDisplay('-')" class="opration">
+                </div>
+
+                <div>
+                    <input type="button" value="1" onclick="buttonDisplay('1')">
+                    <input type="button" value="2" onclick="buttonDisplay('2')">
+                    <input type="button" value="3" onclick="buttonDisplay('3')">
+                    <input type="button" value="+" onclick="buttonDisplay('+')" class="opration">
+                </div>
+
+                <div>
+                    <input type="button" value="00" onclick="buttonDisplay('00')">
+                    <input type="button" value="0" onclick="buttonDisplay('0')">
+                    <input type="button" value="=" onclick="result()" class="equal">
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
